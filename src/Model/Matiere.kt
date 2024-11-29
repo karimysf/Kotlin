@@ -16,14 +16,7 @@ enum class Matiere(
     CLOUD_COMPUTING(" Cloud Computing", 5, Semestre.S6);
 
     fun afficherInfos() {
-       var description=this.description;
-
-        if (description==null)
-        { description="pas de discription disponible";
-
-        }
-
-        println("NOM: ${name}\nDescription (Majuscules): ${description.uppercase()}\n Description(Minuscules) :${description.lowercase()}"+
+        println("NOM: ${name}\nDescription (Majuscules): ${description?.uppercase()?:"non encore renseingné"}\n Description(Minuscules) :${description?.lowercase()?:"non encore renseingné"}"+
                 "\nCoefficient: $coefficient\nSemestre: $semestre")
     }
 
