@@ -2,21 +2,18 @@ package Model
 
 import Model.AgeInvalideException
 
-abstract class Personne(val nom: String, val prenom: String, val age: Int, val email: String? = null) {
-    var adressePostale: String = ""
+abstract class Personne(val nom:String, val prenom:String,val age:Int,val email:String?) {
 
     init {
-        if (age < 18) {
-            throw AgeInvalideException()
-        }
+        if ( age<18) throw AgeInvalideException()
     }
 
-
-    constructor(nom: String, prenom: String, age: Int, email: String?, adressePostale: String) :
-            this(nom, prenom, age, email) {
-        this.adressePostale = adressePostale
+    var adressePostal: String? = null
+    constructor(nom:String, prenom:String, age:Int, email:String?, adressePostal:String) : this(
+        nom,prenom,age,email
+    ){
+        this.adressePostal = adressePostal;
     }
 
     abstract fun afficherInfos()
 }
-

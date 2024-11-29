@@ -12,35 +12,57 @@ fun main() {
     prof1.afficherInfos()
 
     // Instantiating Etudiant without providing matricule since it is generated in the init block
-    val etu1 = Etudiant("youssoufi", "karim", 20, "karim.youssufi@gmail.com", hashMapOf(Matiere.RÉSEAUX to note), Semestre.S3)
-    val etu2 = Etudiant("hassik", "salah", 21, "@gmail.com", hashMapOf(Matiere.BIG_DATA to note), Semestre.S3)
-    val etu3 = Etudiant("ennadif", "anas", 22, null, hashMapOf(Matiere.ALGORITHMIQUE to 15.toFloat(),Matiere.ALGORITHMIQUE to 10.toFloat()), Semestre.S4)
+    val etudiant1 = Etudiant(
+        "Othmane",
+        "Othmane",
+        21,
+        null,
+        null,
+        semestre = Semestre.S1
+    )
+    val etudiant2 = Etudiant(
+        "Salah",
+        "Eddine",
+        22,
+        "salah@gmail.com",
+        null,
+        semestre = Semestre.S2
+    )
+    val etudiant3 = Etudiant(
+        "Mehdi",
+        "Mehdi",
+        21,
+        null,
+        "Marrakech mhamid",
+        semestre = Semestre.S3
+    )
 
-    val notes = hashMapOf(Matiere.RÉSEAUX to note, Matiere.ALGORITHMIQUE to 18.toFloat(), Matiere.BASES_DE_DONNEES to 14.toFloat())
-    etu2.notes = notes
-    etu3.notes = notes
-etu2.definirMatierePreferee(Matiere.DEVELOPPEMENT_MOBIL)
-    etu2.verifierMatierePreferee()
+    etudiant1.notes[Matiere.ALGORITHMIQUE] = 16.5f
+    etudiant1.notes[Matiere.BIG_DATA] = 18.0f
+    etudiant1.notes[Matiere.RESEAUX] = 14.5f
 
-    etu3.afficherInfos()
+    etudiant2.notes[Matiere.SYSTEMES_INFORMATIQUES] = 16.5f
+    etudiant2.notes[Matiere.DEVELOPPEMENT_MOBIL] = 18.0f
+    etudiant2.notes[Matiere.DEVELOPPEMENT_WEB] = 14.5f
+    etudiant2.definirMatierePreferee(Matiere.DEVELOPPEMENT_MOBIL)
+    etudiant2.verifierMatierePreferee()
 
-    etu2.afficherInfos()
-    etu1.afficherInfos()
-    prof1.ajouterMatiere(Matiere.RÉSEAUX)
+    etudiant3.afficherInfos()
+
+    etudiant2.afficherInfos()
+    etudiant1.afficherInfos()
+    prof1.ajouterMatiere(Matiere.RESEAUX)
     prof1.ajouterMatiere(Matiere.ALGORITHMIQUE)
 
     prof1.afficherMatieresEnCharge()
 
 
-    prof1.supprimerMatiere(Matiere.RÉSEAUX)
+    prof1.supprimerMatiere(Matiere.RESEAUX)
 
 
     prof1.afficherMatieresEnCharge()
 
-    val bulletin1 = BulletinDeNotes(etu1, etu1.notes, Semestre.S3)
+    val bulletin1 = BulletinDeNotes(etudiant1, etudiant1.notes, Semestre.S3)
    print(bulletin1)
 }
 
-fun afficher() {
-    Matiere.values().forEach { it.afficherInfos() }
-}

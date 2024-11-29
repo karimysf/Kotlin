@@ -1,29 +1,13 @@
 package Model
 
-import Model.Personne
-import Model.Matiere
-
-class Enseignant(
-    nom: String,
-    prenom: String,
-    age: Int,
-    email: String?,
-    val speciality: String,
-    val Salaire: Float
-) : Personne(nom, prenom, age, email) {
+class Enseignant(nom:String, prenom:String, age:Int, email:String?,adresse:String?,
+                 val specialite:String, val salaire:Float):Personne(nom,prenom,age,email,adresse?:"non encore renseigné"){
 
     val matieresEnCharge: ArrayList<Matiere> by lazy { ArrayList<Matiere>() }
 
     override fun afficherInfos() {
-        var email = this.email
-        var adresse = this.adressePostale
-
-        if (email == null)
-            email = "PAS D'EMAIL"
-        if (adresse == null)
-            adresse = "Pas D'adresse"
-
-        println("Nom: $nom Prénom: $prenom Âge: $age Email: $email Spécialité: $speciality Adresse postale: $adresse")
+        println("nom: $nom prenom: $prenom  Âge: $age ${email?:"email non encore renseigné"} " +
+                "Spécialité: $specialite Adresse postale: $adressePostal")
     }
 
     fun ajouterMatiere(matiere: Matiere) {

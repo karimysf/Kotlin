@@ -2,14 +2,8 @@ package Model
 
 import Model.Personne
 
-class Etudiant(
-    nom: String,
-    prenom: String,
-    age: Int,
-    email: String?,
-    var notes: HashMap<Matiere, Float> = hashMapOf(), // Default empty notes map
-    val semestre: Semestre = Semestre.S1
-) : Personne(nom, prenom, age, email) {
+class Etudiant(nom:String, prenom:String, age:Int, email:String?, adresse:String?,
+                val notes:HashMap<Matiere,Float> = hashMapOf(), val semestre: Semestre):Personne(nom,prenom,age,email,adresse?:"non encore renseigné") {
     var matricule: String= genererMatricule()
     lateinit var matierePreferee: Matiere
 
@@ -44,12 +38,8 @@ class Etudiant(
     }
 
     override fun afficherInfos() {
-        val emailDisplay = this.email ?: "PAS D'EMAIL"
-
-        val notesInfo = if (this.notes.isEmpty()) "Pas de notes à afficher" else "Notes : $notes"
-
-        println("Nom : $nom, Prénom : $prenom,Matricule:$matricule, Age : $age, Email : $emailDisplay, Semestre : $semestre, $notesInfo")
-
-        verifierMatierePreferee()
+        println("nom: $nom prenom: $prenom  Âge: $age ${email?:"email non encore renseigné"} " +
+                "Adresse postale: $adressePostal Matricule: $matricule\n" +
+                "    Semestre: $semestre Notes: ${if (notes.isEmpty()) "Aucune note" else notes}" )
     }
 }

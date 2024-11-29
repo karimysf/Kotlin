@@ -8,7 +8,7 @@ enum class Matiere(
     ALGORITHMIQUE("Introduction aux algorithmes", 3, Semestre.S1),
     SYSTEMES_INFORMATIQUES("Systèmes informatiques et architecture", 4, Semestre.S2),
     BASES_DE_DONNEES(" bases de données", 4, Semestre.S2),
-    RÉSEAUX("Réseaux ", 3, Semestre.S3),
+    RESEAUX("Réseaux ", 3, Semestre.S3),
     GENIE_LOGICIEL(" logiciel", 5, Semestre.S4),
     DEVELOPPEMENT_WEB("Développement web", 4, Semestre.S5),
     DEVELOPPEMENT_MOBIL("Développement mobile", 4, Semestre.S5),
@@ -25,5 +25,9 @@ enum class Matiere(
 
         println("NOM: ${name}\nDescription (Majuscules): ${description.uppercase()}\n Description(Minuscules) :${description.lowercase()}"+
                 "\nCoefficient: $coefficient\nSemestre: $semestre")
+    }
+
+    fun afficherToutesLesMatieres() {
+        Matiere.values().forEach { it.afficherInfos() }
     }
 }
