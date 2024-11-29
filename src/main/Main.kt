@@ -3,11 +3,11 @@ package main
 import Model.*
 
 fun main() {
-    afficher()
 
-    val prof1 = Enseignant("adil", "anwar", 23, null, "POO", 223000.toFloat())
+
+    val prof1 = Enseignant("adil", "anwar", 23, null,null, "POO", 223000f)
     val note: Float = 20.toFloat()
-    val prof2 = Enseignant("kabbaj", "issam", 23, "issam@gmail.com", "BACK-END", 223000.toFloat())
+    val prof2 = Enseignant("kabbaj", "issam", 23, "issam@gmail.com","Avenue ibn sina","BACK-END", 223000f)
     prof2.afficherInfos()
     prof1.afficherInfos()
 
